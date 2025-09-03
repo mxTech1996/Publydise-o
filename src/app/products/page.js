@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main>
-      <Navbar withCart={true} withAll={false} />
+      <Navbar withCart={true} withAll={false} textBlack={false} />
       <PricingSection isHome={false} />
       <Footer />
     </main>

@@ -29,7 +29,7 @@ export default function ContactUs() {
   };
   return (
     <main>
-      <Navbar />
+      <Navbar withAll={false} textBlack={true} />
       <ContactSection />
 
       <Footer />

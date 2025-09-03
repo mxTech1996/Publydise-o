@@ -1,6 +1,6 @@
-export const pageName = 'Tecnicos Ortiz';
+export const pageName = 'Publicdiseño';
 
-export const email = 'info@detroit.com';
+export const email = 'publydise@emailsecure.lat';
 import { IoCall, IoFileTraySharp, IoMail } from 'react-icons/io5';
 
 export const navData = [
@@ -66,307 +66,303 @@ export const benefitsData = [
 ];
 
 export const dataSite = {
-  name: 'Tecnicosortiz',
-  url: 'http://www.tecnicosortiz.lat',
-  telephone: '5513704637',
-  email: 'admcaminos@emailsecure.lat',
+  name: 'Publydiseño',
+  url: 'https://es.wiktionary.org/wiki/hol',
+  telephone: '5578869871',
+  email: 'publydise@emailsecure.lat',
   address:
-    'HERIBERTO FRIAS 1439, 1INTERIOR 504 A, DEL VALLE CENTRO, BENITO JUAREZ, CIUDAD DE MEXICO, C.P. 03100',
+    'TUXPAN 39, INTERIOR 703 A, ROMA SUR, CUAUHTEMOC, CIUDAD DE MEXICO, C.P. 06760',
   description:
-    'Our website is designed to provide comprehensive computer solutions tailored to the needs of individuals, businesses, and professionals. We offer a wide range of services including technical support, preventive and corrective maintenance, software installation and configuration, data recovery, as well as consulting for hardware acquisition and system optimization.',
-  subtitle: 'Transforming Technology Challenges into Opportunities',
+    'Our website is designed to help businesses, entrepreneurs, and personal brands stand out in an increasingly competitive market. We offer comprehensive advertising solutions that combine creativity, strategy, and technology to increase your brand’s visibility and attract your ideal audience.\r\n\r\nThrough an intuitive and user-friendly platform, clients can explore our wide range of services, from digital campaigns on social media and search engine advertising to graphic design, audiovisual production, and content marketing strategies.',
+  subtitle: 'Creative Advertising Solutions That Drive Results',
   image_hero:
-    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/ortiz._1.png',
+    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/publi_1_G5EL33y.png',
   image_hero2:
-    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/ortiz_2_.png',
+    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/publi2__MDEBg2a.png',
   iconImage:
-    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/integralestecnicosortizsderldecv-high-resolution-logo.png',
-  info: [
-    {
-      title: 'Values',
-      description:
-        'Reliability ,Delivering secure and effective solutions that ensure systems run smoothly,Innovation, Providing services updated with the latest trends and technologies in the market,Personalized Attention ,Tailoring each solution to the specific needs of every client.',
-    },
-    {
-      title: 'Clients',
-      description:
-        'Individual Users,People who need basic technical assistance, computer repairs, software installation, or remote support,Small and Medium-Sized Businesses (SMBs), Companies that require system maintenance, IT security, cloud backup, and hardware/software optimization,Corporations and Large Enterprises ,Organizations needing comprehensive IT solutions, network management, servers, advanced cybersecurity, and 24/7 support.',
-    },
-    {
-      title: 'Responsive and modern design.',
-      description:
-        'Adapted for computers, tablets, and mobile devices,Intuitive interface for easy user navigation',
-    },
-    {
-      title: 'Customer service',
-      description:
-        'Fast and efficient, ​​Immediate responses via chat or ticketing with clear resolution times.',
-    },
-    {
-      title: 'Computer security',
-      description:
-        'Protection against viruses, malware, hackers, and secure data backup.',
-    },
-  ],
+    'https://cms-webserver-statics.s3.amazonaws.com/media/websites/publydiseo-makky-s-de-rl-de-cv-high-resolution-logo_T6xgxZH.png',
+  info: [],
   services: [
     {
-      title: 'Remote and On-Site Technical Support',
+      title: 'Digital Campaign Management',
       description:
-        'Quickly and efficiently resolving hardware and software issues.',
+        'Creation, monitoring, and optimization of campaigns on Google Ads, Meta Ads, TikTok Ads, and other platforms.',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/services/ortiz_3_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/services/punbli_3_.png',
     },
     {
-      title: 'Preventive and Corrective Maintenance',
+      title: 'Social Media Advertising',
       description:
-        'Regular check ups, cleaning, and repairs of computers and devices.',
+        'Targeted strategies and sponsored content to increase reach, engagement, and conversions.',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/services/ortiz_4_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/services/publi_4_.png',
     },
     {
-      title: 'Software Installation and Configuration',
+      title: 'Ad Design & Production',
       description:
-        'Operating systems, professional applications, and productivity programs.',
+        'Development of graphics, promotional videos, banners, and multimedia content for campaigns.',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/services/ortiz_5_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/services/publi_5_.png',
     },
     {
-      title: 'Cybersecurity and Data Protection',
-      description: 'Antivirus, firewalls, data encryption, and cloud backups.',
+      title: 'Programmatic Advertising',
+      description:
+        'Automated media buying on websites and apps with advanced audience targeting.',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/services/ortuz_6_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/services/publi_6_.png',
     },
     {
-      title: 'Technology Consulting',
+      title: 'Advertising Strategy Consulting',
       description:
-        'Technology Consulting – Advising on hardware acquisition, system optimization, and customized solutions for businesses and individuals.',
+        'Advertising Strategy Consulting  Guidance to define goals, audiences, channels, and campaign budgets.',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/services/ortiz_7_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/services/publi_7.png',
     },
   ],
   references: [
     {
-      name: 'Ana López, Freelance Graphic Designer',
+      name: 'Ana G., Owner of "Aromatic Corner Cafe',
       description:
-        'I had a problem with my laptop that was driving me crazy and preventing me from working. I contacted the team, and in less than an hour, they were diagnosing the issue remotely. The solution was quick, and they explained everything very clearly. Totally recommended!"',
-      rating: 4,
-      image: null,
-    },
-    {
-      name: 'Carlos Rodríguez, SMB Director',
-      description:
-        "As a small business owner, the security of my data is crucial. The cybersecurity consulting I received was exceptional. They implemented a complete protection package, and now I have peace of mind knowing that my information and my clients' data are safe. A professional and essential service.",
+        'As a coffee shop owner, I had neither the time nor the knowledge to handle social media advertising. The team from this site guided me step by step. They were incredibly patient and created an Instagram and Facebook campaign focused on my local community. In just three months, not only did I see more new people coming through the door mentioning the ads, but my online order sales increased by 40%. Highly recommended.',
       rating: 5,
       image: null,
     },
     {
-      name: 'Sofía Martínez, Architect',
+      name: 'Javier M., Ecommerce Manager at Urban',
       description:
-        'I thought I needed to buy a new computer because mine was so slow. After the optimization service, the change was incredible. It boots up in seconds, and the programs I use for my work now run smoothly. They saved me a lot of money and optimized my main work tool.',
+        'After trying several agencies, we finally found a team that speaks our language. Their focus on data and constant optimization of our Google Ads and Programmatic Advertising campaigns is next level. The reports are clear, detailed, and they are always willing to explain every metric',
       rating: 5,
       image: null,
     },
     {
-      name: 'Javier González, Operations Manager',
+      name: 'Carlos R., Financial Consultant',
       description:
-        "I needed to upgrade the equipment in my office but didn't know where to start. Their consulting service was key. They analyzed our needs and recommended the perfect hardware, without trying to sell us the most expensive option. Thanks to them, we made a smart purchase that fit our budget.",
+        "Honestly, I was skeptical about whether digital advertising would work for my financial consulting services. The initial consultation was key; they didn't pressure me to sign up for the most expensive package, but instead recommended starting with a very specific Google search campaign",
+      rating: 5,
+      image: null,
+    },
+    {
+      name: 'Sofía L., Marketing Director',
+      description:
+        "What I value most about their service is their ability to understand our brand and act as a true strategic partner. They don't just execute campaigns; they propose creative ideas, from the banner designs to the ad copywriting",
+      rating: 5,
+      image: null,
+    },
+    {
+      name: 'Ricardo E., Founder of ConnectApp',
+      description:
+        'We needed to launch a new app, and time was critical. We hired their promotional video production service and the management of the YouTube and TikTok campaign. The video they produced was of incredible quality and perfectly captured the essence of our product.',
       rating: 5,
       image: null,
     },
   ],
   products: [
     {
-      id: 1141,
-      name: 'Cybersecurity Protection Package',
+      id: 1154,
+      name: 'Branding & Graphic Design Kit',
       category: null,
       description:
-        'The Cybersecurity Protection Package is a comprehensive suite of solutions designed to safeguard an organization’s systems, networks, and data against cyber threats. This package integrates advanced tools, continuous monitoring, and proactive defense strategies to ensure security, data confidentiality, and business continuity.',
-      price: '230.00',
+        'The Branding & Graphic Design Kit is a complete package that provides businesses with a strong and consistent visual identity. It includes essential design elements that reflect the brand’s values, mission, and style, ensuring a professional and recognizable presence across all platforms.',
+      price: '210.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz._9.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_9_.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1140,
-      name: 'IT Infrastructure Assessment Report',
+      id: 1155,
+      name: 'Promotional Video Production',
       category: null,
       description:
-        'The IT Infrastructure Assessment Report is a comprehensive analysis of an organization’s technology environment. It evaluates the current state of IT infrastructure including hardware, software, networks, security, and storage capacity to identify risks, areas for improvement, and optimization opportunities. The report provides clear, actionable insights to support strategic decision-making and ensure business continuity.',
-      price: '250.00',
-      stock: 100,
-      content: '',
-      product_type: 'NORMAL',
-      image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_8_.png',
-      image2: null,
-      image3: null,
-    },
-    {
-      id: 1142,
-      name: 'Cloud Migration Plan',
-      category: null,
-      description:
-        'The Cloud Migration Plan is a structured roadmap that guides organizations through the process of moving their applications, data, and infrastructure from on-premises environments to the cloud. It ensures a smooth, secure, and cost-effective transition by addressing technical, operational, and business requirements.',
-      price: '220.00',
-      stock: 100,
-      content: '',
-      product_type: 'NORMAL',
-      image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_10_.png',
-      image2: null,
-      image3: null,
-    },
-    {
-      id: 1143,
-      name: 'System Optimization Toolkit',
-      category: null,
-      description:
-        'The System Optimization Toolkit is a comprehensive package of tools and best practices designed to improve the performance, efficiency, and reliability of IT systems. It helps organizations reduce downtime, maximize resource utilization, and enhance overall system stability through proactive monitoring, fine-tuning, and automation.',
-      price: '100.00',
-      stock: 1001,
-      content: '',
-      product_type: 'NORMAL',
-      image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_111.png',
-      image2: null,
-      image3: null,
-    },
-    {
-      id: 1152,
-      name: 'Quick Diagnostic Kits',
-      category: null,
-      description:
-        'Tools and resources to identify common hardware and software issues.',
-      price: '30.00',
-      stock: 100,
-      content: '',
-      product_type: 'NORMAL',
-      image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_20.png',
-      image2: null,
-      image3: null,
-    },
-    {
-      id: 1144,
-      name: 'Data Backup & Recovery Solution',
-      category: null,
-      description:
-        'The Data Backup & Recovery Solution is a reliable and secure system designed to safeguard critical business information and ensure rapid recovery in case of data loss, system failure, or cyber incidents. It combines advanced backup technologies, automated processes, and disaster recovery strategies to guarantee data availability and business continuity.',
-      price: '190.00',
-      stock: 100,
-      content: '',
-      product_type: 'NORMAL',
-      image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_1_2.png',
-      image2: null,
-      image3: null,
-    },
-    {
-      id: 1145,
-      name: 'Network Design & Implementation Guide',
-      category: null,
-      description:
-        'The Network Design & Implementation Guide is a structured framework that provides organizations with a clear roadmap for planning, building, and deploying secure, efficient, and scalable network infrastructures. It aligns business goals with technical requirements to ensure reliable connectivity, performance optimization, and long-term adaptability.',
+        'Promotional Video Production is a complete service designed to create engaging, high-quality videos that effectively communicate a brand’s message, products, or services. These videos are crafted to capture audience attention, enhance brand visibility, and drive conversions across digital platforms.',
       price: '179.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_13.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_10_.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1146,
-      name: 'Digital Transformation Roadmap',
+      id: 1153,
+      name: 'Social Media Campaign Package',
       category: null,
       description:
-        'The Digital Transformation Roadmap is a strategic plan designed to guide organizations through the process of integrating digital technologies across all areas of their business. It helps align technology initiatives with business objectives, optimize processes, enhance customer experiences, and drive innovation while managing risks and resources effectively.',
-      price: '166.00',
+        'The Social Media Campaign Package is a comprehensive solution designed to help businesses build brand awareness, engage with their target audience, and drive measurable results across multiple social media platforms. It includes strategic planning, creative content development, and performance tracking to maximize impact.',
+      price: '230.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz._14.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_8_.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1147,
-      name: 'IT Training & Capacity Building Program',
+      id: 1156,
+      name: 'SEO & SEM Pack',
       category: null,
       description:
-        'The IT Training & Capacity Building Program is a comprehensive learning initiative designed to enhance the technical skills, knowledge, and competencies of IT staff and professionals within an organization. It equips teams with the expertise needed to manage modern IT systems, adopt new technologies, and optimize organizational performance while fostering continuous professional development.',
-      price: '139.00',
+        'The SEO & SEM Pack is a comprehensive digital marketing solution designed to increase website visibility, drive targeted traffic, and maximize conversions. It combines organic search optimization (SEO) with paid advertising campaigns (SEM) to deliver measurable results',
+      price: '159.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_15.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_11.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1148,
-      name: 'PC Maintenance Guides',
+      id: 1157,
+      name: 'Email Marketing Automation',
       category: null,
       description:
-        'Downloadable documents with instructions to keep computers in optimal condition.',
-      price: '10.00',
+        'Email Marketing Automation is a comprehensive solution that helps businesses engage, nurture, and convert leads through personalized and timely email campaigns. By automating workflows, it ensures consistent communication while saving time and increasing efficiency.',
+      price: '123.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_16.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_12.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1149,
-      name: 'Software Update Packages',
+      id: 1159,
+      name: 'Campaign Analysis & Reporting',
       category: null,
       description:
-        'Sets of recommended programs and tools to improve system performance.',
+        'Campaign Analysis & Reporting is a service that provides businesses with comprehensive insights into the performance of their marketing campaigns. By collecting, analyzing, and presenting data, it helps optimize strategies, maximize ROI, and make informed decisions for future campaigns.',
+      price: '140.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_14_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1160,
+      name: 'Advertising Strategy Consulting',
+      category: null,
+      description:
+        'Advertising Strategy Consulting is a professional service designed to help businesses develop, optimize, and execute effective advertising strategies. By combining market insights, consumer behavior analysis, and industry best practices, this service ensures that advertising campaigns achieve maximum impact and ROI.',
+      price: '156.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_15_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1158,
+      name: 'Premium Programmatic Advertising',
+      category: null,
+      description:
+        'Premium Programmatic Advertising is a data-driven solution designed to deliver highly targeted digital ads in real-time across multiple platforms. Leveraging advanced algorithms and audience insights, it maximizes reach, engagement, and ROI while reducing wasted ad spend.',
+      price: '180.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_1_3_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1161,
+      name: 'Instagram Story Ads',
+      category: null,
+      description:
+        'Short, engaging ads designed specifically for Instagram Stories.',
       price: '15.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortuiz_17.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_16_.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1150,
-      name: 'Cybersecurity Templates',
+      id: 1162,
+      name: 'Custom Banner Design',
       category: null,
       description:
-        'Checklists and formats for implementing data protection policies.',
-      price: '20.00',
+        'Professionally designed banners for websites or digital campaigns.',
+      price: '30.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_18.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_17_.png',
       image2: null,
       image3: null,
     },
     {
-      id: 1151,
-      name: 'Video Tutorials',
+      id: 1163,
+      name: 'YouTube Pre Roll Videos',
       category: null,
-      description:
-        'Step-by-step videos on installation, configuration, and system optimization.',
-      price: '25.00',
+      description: 'Short video ads that play before YouTube content.',
+      price: '35.00',
       stock: 100,
       content: '',
       product_type: 'NORMAL',
       image:
-        'https://cms-webserver-statics.s3.amazonaws.com/media/products/ortiz_19_.png',
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_18_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1164,
+      name: 'Google Ads Keyword Package',
+      category: null,
+      description:
+        'Curated sets of high-performing keywords for PPC campaigns.',
+      price: '40.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi19_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1165,
+      name: 'Email Template Library',
+      category: null,
+      description:
+        'Pre designed, customizable templates for email marketing campaigns.',
+      price: '10.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/publi_20_.png',
+      image2: null,
+      image3: null,
+    },
+    {
+      id: 1166,
+      name: 'CAD & 3D Modeling Services',
+      category: null,
+      description:
+        'CAD & 3D Modeling Services provide professional solutions to transform conceptual ideas into precise and visually detailed digital models. These services are ideal for industries such as architecture, engineering, manufacturing, product design, animation, and gaming. They help optimize design processes, reduce production errors, and enhance visual communication with clients and technical teams.',
+      price: '250.00',
+      stock: 100,
+      content: '',
+      product_type: 'NORMAL',
+      image:
+        'https://cms-webserver-statics.s3.amazonaws.com/media/products/mia8_.png',
       image2: null,
       image3: null,
     },

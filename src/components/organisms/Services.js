@@ -1,42 +1,40 @@
-// En tu archivo: /components/ServicesSection.js
+// In your file: /components/CoreStrategy.js
 'use client';
 
 import { motion } from 'framer-motion';
-// Íconos para cada servicio
-import {
-  LuCloudCog,
-  LuShieldCheck,
-  LuServer,
-  LuArrowRight,
-} from 'react-icons/lu';
+// Icons for each pillar
+import { LuBrainCircuit, LuLightbulb, LuTrendingUp } from 'react-icons/lu';
 
-// --- Datos para la sección ---
-const servicesData = [
+// --- Data for the section ---
+const strategyPillars = [
   {
-    icon: <LuCloudCog size={28} />,
-    title: 'Cloud Infrastructure & Migration',
+    icon: <LuBrainCircuit size={32} />,
+    title: 'Data-Driven Strategy',
     description:
-      'We design and implement scalable cloud solutions, migrating your existing infrastructure to platforms like AWS and Azure with minimal downtime.',
+      'We start with deep market research and audience analysis to build a campaign strategy that is targeted, effective, and measurable.',
   },
   {
-    icon: <LuShieldCheck size={28} />,
-    title: 'Cybersecurity & Risk Assessment',
+    icon: <LuLightbulb size={32} />,
+    title: 'Compelling Creativity',
     description:
-      'Protect your digital assets with our comprehensive security audits, threat detection, and proactive risk management strategies.',
+      "Our creative team produces stunning visuals and persuasive copy that capture attention, tell your brand's story, and drive engagement.",
   },
   {
-    icon: <LuServer size={28} />,
-    title: 'Managed IT Services',
+    icon: <LuTrendingUp size={32} />,
+    title: 'Performance Optimization',
     description:
-      'Offload your day-to-day IT operations to our expert team. We provide 24/7 monitoring, support, and maintenance for your systems.',
+      "Campaigns aren't 'set and forget.' We continuously monitor, test, and optimize every aspect to maximize your return on investment.",
   },
 ];
 
-const ServicesSection = () => {
-  // Variantes para animación escalonada
+const CoreStrategy = () => {
+  // Animation variants for staggering
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
@@ -49,61 +47,67 @@ const ServicesSection = () => {
   };
 
   return (
-    // El fondo púrpura coincide con el gradiente del Hero para una transición suave
-    <section className='relative py-20 md:py-28 bg-gradient-to-br from-purple-600 to-indigo-700'>
-      {/* Esto asegura que la onda de la sección anterior se superponga correctamente */}
-      <div className='absolute top-0 left-0 w-full h-24 bg-white'></div>
-
-      <div className='container mx-auto px-4 relative z-10'>
+    <section id='strategy' className='relative py-20 md:py-28 bg-white'>
+      <div className='container mx-auto px-4 text-center'>
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5 }}
-          className='text-center mb-16'
+          className='max-w-3xl mx-auto'
         >
-          <p className='font-semibold text-yellow-300 mb-2'>WHAT WE DO</p>
-          <h2 className='text-4xl md:text-5xl font-bold text-white'>
-            Our Core IT Services
+          <p className='font-semibold text-pink-600 mb-2'>OUR PHILOSOPHY</p>
+          <h2 className='text-4xl md:text-5xl font-bold text-gray-900'>
+            The Core of Our Strategy
           </h2>
+          <p className='mt-4 text-lg text-gray-600'>
+            A holistic approach for market-leading results.
+          </p>
         </motion.div>
 
         <motion.div
-          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true, amount: 0.2 }}
         >
-          {servicesData.map((service, index) => (
+          {strategyPillars.map((pillar, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className='bg-white p-8 rounded-lg text-center flex flex-col items-center shadow-lg hover:shadow-purple-400/30 transition-shadow duration-300'
+              whileHover={{ y: -8, scale: 1.02 }}
+              className='bg-[#262B57] p-8 rounded-lg text-white/90 border border-blue-900/50 shadow-lg'
             >
-              <div className='bg-purple-100 text-purple-600 rounded-full p-4 mb-6'>
-                {service.icon}
+              <div className='flex justify-center text-pink-500 mb-5'>
+                {pillar.icon}
               </div>
-              <h3 className='text-xl font-bold text-gray-800 mb-3 flex-grow'>
-                {service.title}
+              <h3 className='text-xl font-bold text-white mb-3'>
+                {pillar.title}
               </h3>
-              <p className='text-gray-600 mb-6 text-sm leading-relaxed'>
-                {service.description}
+              <p className='text-blue-200/80 leading-relaxed text-sm'>
+                {pillar.description}
               </p>
-              <a
-                href='/contact'
-                className='flex items-center gap-2 font-semibold text-purple-600 hover:text-purple-800 transition-colors'
-              >
-                <span>Get a quote</span>
-                <LuArrowRight />
-              </a>
             </motion.div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Wavy bottom divider */}
+      <div className='absolute bottom-0 left-0 w-full'>
+        <svg
+          viewBox='0 0 1440 100'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M0 100H1440V0C1181.33 118.667 809.5 73.3333 550.5 28C291.5 -17.3333 131.333 41.3333 0 100Z'
+            fill='#262B57'
+          />
+        </svg>
       </div>
     </section>
   );
 };
 
-export default ServicesSection;
+export default CoreStrategy;

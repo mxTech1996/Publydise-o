@@ -1,30 +1,31 @@
-// En tu archivo: /components/ProjectsSection.js
+// En tu archivo: /components/PortfolioSection.js
 'use client';
 
 import { dataSite } from '@/data';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { LuEye } from 'react-icons/lu';
 
 // --- Datos para la sección ---
-const projectsData = [
+const portfolioData = [
   {
-    image: dataSite.services[3].image,
-    title: 'Cloud Migration for a FinTech Leader',
-    category: 'Infrastructure Overhaul',
-  },
-  {
-    image: dataSite.services[2].image,
-    title: 'Cybersecurity Shield for an E-commerce Platform',
-    category: 'Security & Risk Mitigation',
+    image: dataSite.services[0].image,
+    title: 'Kinetic Wear - Viral Campaign',
+    category: 'Social Media Marketing',
   },
   {
     image: dataSite.services[1].image,
-    title: 'Digital Transformation for a Retail Giant',
-    category: 'Process Automation',
+    title: 'Aura Coffee - Brand Identity',
+    category: 'Branding & Design',
+  },
+  {
+    image: dataSite.services[4].image,
+    title: 'Momentum Motors - Video Ad',
+    category: 'Video Production',
   },
 ];
 
-const ProjectsSection = () => {
+const PortfolioSection = () => {
   // Variantes para animación escalonada
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,25 +42,8 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section
-      id='our-work'
-      className='relative pt-20 md:pt-28 pb-20 md:pb-28 bg-gradient-to-br from-purple-600 to-indigo-700'
-    >
-      {/* Divisor ondulado que se superpone a la sección anterior */}
-      <div className='absolute top-0 left-0 w-full -translate-y-1/2'>
-        <svg
-          viewBox='0 0 1440 100'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M0 0H1440V100C1181.33 -18.6667 809.5 26.6667 550.5 72C291.5 117.333 131.333 58.6667 0 0Z'
-            fill='white'
-          />
-        </svg>
-      </div>
-
-      <div className='container mx-auto px-4 relative z-10'>
+    <section id='services' className='py-20 md:py-28 bg-[#262B57]'>
+      <div className='container mx-auto px-4'>
         <motion.div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -67,9 +51,9 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className='text-center mb-16'
         >
-          <p className='font-semibold text-yellow-300 mb-2'>OUR WORKS</p>
+          <p className='font-semibold text-pink-500 mb-2'>OUR WORKS</p>
           <h2 className='text-4xl md:text-5xl font-bold text-white'>
-            Featured Projects
+            A Glimpse Into Our Successful Campaigns
           </h2>
         </motion.div>
 
@@ -80,35 +64,42 @@ const ProjectsSection = () => {
           whileInView='visible'
           viewport={{ once: true, amount: 0.2 }}
         >
-          {projectsData.map((project, index) => (
+          {portfolioData.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className='bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden group'
+              whileHover='hover'
+              initial='rest'
+              className='group relative block aspect-[4/3] rounded-lg overflow-hidden shadow-lg'
             >
-              <div className='relative h-56 overflow-hidden'>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  layout='fill'
-                  objectFit='cover'
-                  className='transition-transform duration-500 ease-in-out group-hover:scale-105'
-                />
-              </div>
-              <div className='p-6'>
-                <p className='text-sm text-yellow-300 font-medium'>
+              {/* Imagen de fondo */}
+              <Image
+                src={project.image}
+                alt={project.title}
+                layout='fill'
+                objectFit='cover'
+                className='transition-transform duration-500 ease-in-out group-hover:scale-105'
+              />
+              {/* Superposición que aparece al pasar el mouse */}
+              <motion.div
+                className='absolute inset-0 bg-black/50 flex flex-col justify-end p-6'
+                variants={{
+                  rest: { opacity: 0 },
+                  hover: { opacity: 1 },
+                }}
+                transition={{ duration: 0.4 }}
+              >
+                <p className='text-sm font-medium text-pink-200'>
                   {project.category}
                 </p>
-                <h3 className='text-xl font-bold text-white mt-2'>
+                <h3 className='text-xl font-bold text-white mt-1'>
                   {project.title}
                 </h3>
-                {/* <a
-                  href='#'
-                  className='inline-block mt-4 text-white font-semibold hover:text-yellow-300 transition-colors'
-                >
-                  View Project &rarr;
-                </a> */}
-              </div>
+                <div className='mt-4 flex items-center gap-2 text-white font-semibold'>
+                  <a href='/contact'>Learn more</a>
+                  <LuEye />
+                </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -117,4 +108,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection;
+export default PortfolioSection;

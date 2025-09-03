@@ -1,21 +1,11 @@
-// CÓDIGO COMPLETO PARA LA PRIMERA SECCIÓN
-// Guárdalo en un archivo como: /components/Hero.js
-
-'use client';
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { dataSite } from '@/data';
 
-// --- Componente Principal de la Sección Hero ---
 const HeroSection = () => {
   // Variantes para animación escalonada
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
   };
 
   const itemVariants = {
@@ -27,101 +17,89 @@ const HeroSection = () => {
     },
   };
 
-  // Animación flotante para las ilustraciones
-  const floatingAnimation = {
-    y: ['-8px', '8px'],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: 'reverse',
-      ease: 'easeInOut',
-    },
-  };
-
   return (
-    <section className='relative w-full pt-16 pb-24 bg-gradient-to-br from-purple-600 to-indigo-700 text-white overflow-hidden'>
-      {/* Formas abstractas de fondo */}
-      <div className='absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full -translate-x-1/4 -translate-y-1/4'></div>
-      <div className='absolute bottom-0 right-0 w-80 h-80 bg-white/10 rounded-full translate-x-1/4 translate-y-1/4'></div>
+    <section className='relative w-full min-h-screen bg-[#262B57] text-white flex items-center overflow-hidden'>
+      {/* Patrones de puntos decorativos */}
+      <div className='absolute top-20 left-20 w-48 h-48 bg-radial-gradient opacity-20'></div>
+      <div className='absolute bottom-20 right-20 w-48 h-48 bg-radial-gradient opacity-20'></div>
 
-      <div className='container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10'>
-        {/* Columna de Texto (Izquierda) */}
-        <motion.div
-          className='text-center lg:text-left'
-          variants={containerVariants}
-          initial='hidden'
-          animate='visible'
-        >
-          <motion.p
-            variants={itemVariants}
-            className='font-semibold text-yellow-300 mb-2'
+      <div className='container mx-auto px-4'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+          {/* Columna de Texto (Izquierda) */}
+          <motion.div
+            className='text-center lg:text-left z-10'
+            variants={containerVariants}
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true }}
           >
-            IT CONSULTING SERVICES
-          </motion.p>
-          <motion.h1
-            variants={itemVariants}
-            className='text-4xl md:text-6xl font-bold leading-tight mb-6'
-          >
-            Modern Solutions for Your Digital Infrastructure.
-          </motion.h1>
-          <motion.p
-            variants={itemVariants}
-            className='text-lg text-purple-100 mb-8 max-w-lg mx-auto lg:mx-0'
-          >
-            We provide expert IT consulting to optimize your technology, enhance
-            security, and drive business innovation. Let&#39;s build a more
-            efficient future, together.
-          </motion.p>
-          <motion.div variants={itemVariants}>
-            <button className='px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105'>
-              Get a Free Analysis
-            </button>
+            <motion.p
+              variants={itemVariants}
+              className='font-semibold text-pink-500 mb-2'
+            >
+              AWARD-WINNING ADVERTISING AGENCY
+            </motion.p>
+            <motion.h1
+              variants={itemVariants}
+              className='text-5xl md:text-6xl font-extrabold leading-tight mb-6'
+            >
+              Creative Campaigns That Captivate & Convert.
+            </motion.h1>
+            <motion.p
+              variants={itemVariants}
+              className='text-lg text-blue-100 mb-8 max-w-lg mx-auto lg:mx-0'
+            >
+              We blend data-driven strategy with bold creativity to build
+              advertising campaigns that not only get noticed but deliver
+              measurable results.
+            </motion.p>
+            <motion.div
+              variants={itemVariants}
+              className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'
+            >
+              <a
+                href='#services'
+                className='px-8 py-3 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition-colors duration-300'
+              >
+                Our Services
+              </a>
+              <a
+                href='#benefits'
+                className='px-8 py-3 bg-transparent text-white font-semibold rounded-full border-2 border-white/50 hover:bg-white hover:text-blue-900 transition-colors duration-300'
+              >
+                View Our Work
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
 
-        {/* Columna de Ilustraciones (Derecha) */}
-        <div className='hidden lg:block relative h-[450px]'>
+          {/* Columna de Ilustración (Derecha) */}
           <motion.div
-            className='absolute top-10 right-20'
-            animate={floatingAnimation}
-          >
-            <Image
-              src={dataSite.image_hero}
-              alt='IT consultant working on a laptop'
-              width={300}
-              height={300}
-            />
-          </motion.div>
-          <motion.div
-            className='absolute bottom-10 left-10'
-            animate={{
-              ...floatingAnimation,
-              transition: { ...floatingAnimation.transition, delay: 0.5 },
-            }}
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className='hidden lg:block relative w-full h-[500px]'
           >
             <Image
               src='/images/hero.png' // Reemplaza con tu ilustración
-              alt='IT consultant with cloud server'
-              width={350}
-              height={350}
+              alt='Creative team brainstorming an advertising campaign'
+              layout='fill'
+              objectFit='contain'
             />
           </motion.div>
         </div>
       </div>
-
-      {/* Divisor de sección ondulado */}
-      <div className='absolute bottom-0 left-0 w-full'>
-        <svg
-          viewBox='0 0 1440 100'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M0 100H1440V0C1181.33 118.667 809.5 73.3333 550.5 28C291.5 -17.3333 131.333 41.3333 0 100Z'
-            fill='white'
-          />
-        </svg>
-      </div>
+      {/* Añadimos un style global para el patrón de puntos si es necesario */}
+      <style jsx global>{`
+        .bg-radial-gradient {
+          background-image: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.5) 1px,
+            transparent 1px
+          );
+          background-size: 1rem 1rem;
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,31 +1,24 @@
-// En tu archivo: /components/PricingSection.js
+// En tu archivo: /components/ProductsSection.js
 'use client';
 
 import { dataSite } from '@/data';
 import { motion } from 'framer-motion';
-import Image from 'next/image'; // Asegúrate de que Image esté importado
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
-import { LuCheckCircle } from 'react-icons/lu';
 import { CartContext } from 'ui-old-version';
 
-// --- Datos para los planes de precios (ACTUALIZADO CON IMÁGENES) ---
-const pricingData = dataSite.products.filter(
-  (product) => parseFloat(product.price) > 60
-);
-const pricingDataAdd = dataSite.products.filter(
-  (product) => parseFloat(product.price) < 60
-);
+// --- DATA: La información de productos que proporcionaste ---
+const productsData = dataSite.products;
 
-const PricingSection = ({ isHome = true }) => {
+const ProductsSection = ({ isHome = true }) => {
+  const navigate = useRouter();
   const { handleAddOrRemoveProduct, validateProductInCart } =
     useContext(CartContext);
-
-  const router = useRouter();
-  // Las variantes de animación se mantienen igual
+  // Variantes para animación escalonada
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
@@ -33,15 +26,23 @@ const PricingSection = ({ isHome = true }) => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
 
+  // Variantes para animar el contenido de la tarjeta al pasar el mouse
+  const contentVariants = {
+    rest: { y: 0 },
+    hover: { y: -10 },
+  };
+
+  const descriptionVariants = {
+    rest: { opacity: 0, y: 10, height: 0 },
+    hover: { opacity: 1, y: 0, height: 'auto', transition: { delay: 0.1 } },
+  };
+
   return (
-    <section
-      id='products'
-      className='py-20 md:py-28 bg-gradient-to-br from-purple-600 to-indigo-700'
-    >
+    <section className='py-20 md:py-28 bg-[#262B57]'>
       <div className='container mx-auto px-4'>
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -50,101 +51,103 @@ const PricingSection = ({ isHome = true }) => {
           transition={{ duration: 0.5 }}
           className='text-center mb-16'
         >
-          <p className='font-semibold text-yellow-300 mb-2'>PRICING</p>
           <h2 className='text-4xl md:text-5xl font-bold text-white'>
-            Clear & Transparent Pricing
+            Our Products
           </h2>
+          <p className='mt-4 text-lg text-blue-200/80'>
+            Digital solutions to grow your business.
+          </p>
         </motion.div>
 
         <motion.div
-          className='grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
-          {pricingData.map((plan, index) => {
-            const handleClick = () => {
-              if (isHome) {
-                router.push('/contact');
-                return;
-              }
-              handleAddOrRemoveProduct(plan.id);
-            };
-            const isInCart = validateProductInCart(plan.id);
+          {productsData
+            .filter((item) => parseFloat(item.price) > 60)
+            .map((product) => {
+              const isInCart = validateProductInCart(product.id);
+              const handleButtonClick = () => {
+                if (isHome) {
+                  navigate.push('/contact');
+                  return;
+                }
+                handleAddOrRemoveProduct(product.id);
+              };
 
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className={`flex flex-col rounded-xl overflow-hidden shadow-lg transition-all duration-300 ${
-                  plan.isFeatured
-                    ? 'bg-white text-gray-800 scale-100 lg:scale-105'
-                    : 'bg-white/10 text-white border border-white/20'
-                }`}
-              >
-                {/* --- SECCIÓN DE IMAGEN AÑADIDA --- */}
-                <div className='relative w-full h-48'>
-                  <Image
-                    src={plan.image}
-                    alt={plan.name}
-                    layout='fill'
-                    objectFit='cover'
-                  />
-                </div>
-
-                <div className='p-8 flex-grow flex flex-col'>
-                  <h3 className='text-2xl font-bold mb-3'>{plan.name}</h3>
-                  <span className='text-4xl font-bold'>{plan.price} USD</span>
-                  <span className={`${'text-white'}`}>{plan.description}</span>
-
-                  {/* Div para empujar el botón hacia abajo */}
-                  {/* <ul className='space-y-4 flex-grow'>
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className='flex items-start gap-3'>
-                      <LuCheckCircle
-                        className={`flex-shrink-0 mt-1 ${
-                          plan.isFeatured
-                            ? 'text-purple-500'
-                            : 'text-yellow-300'
-                        }`}
-                      />
-                      <span
-                        className={`${
-                          plan.isFeatured ? 'text-gray-600' : 'text-gray-200'
-                        }`}
-                      >
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul> */}
-
-                  <div className='mt-8'>
-                    <button
-                      onClick={handleClick}
-                      className={`w-full px-6 py-3 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 ${
-                        !isInCart
-                          ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-500'
-                          : 'bg-purple-500/50 text-white hover:bg-purple-500'
-                      }`}
-                    >
-                      {isHome
-                        ? 'Get a quote'
-                        : isInCart
-                        ? 'Remove from Cart'
-                        : 'Add to Cart'}
-                    </button>
+              return (
+                <motion.div
+                  key={product.id}
+                  variants={itemVariants}
+                  initial='rest'
+                  whileHover='hover'
+                  animate='rest'
+                  className='group relative h-96 rounded-xl overflow-hidden shadow-lg'
+                >
+                  {/* Imagen de Fondo */}
+                  <div className='absolute inset-0'>
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      layout='fill'
+                      objectFit='cover'
+                      className='transition-transform duration-500 ease-in-out group-hover:scale-105'
+                    />
                   </div>
-                </div>
-              </motion.div>
-            );
-          })}
+                  {/* Overlay oscuro para legibilidad */}
+                  <div className='absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-400' />
+
+                  {/* Contenido de la tarjeta */}
+                  <div className='relative h-full flex flex-col p-6 text-white'>
+                    <div className='flex justify-between items-center'>
+                      <span className='font-bold text-xl text-[#ced1ec]'>
+                        ${product.price} USD
+                      </span>
+                    </div>
+
+                    <div className='flex-grow flex flex-col justify-end'>
+                      <motion.div
+                        variants={contentVariants}
+                        className='transition-transform duration-400 ease-out'
+                      >
+                        <h3 className='text-2xl font-bold leading-tight mb-2'>
+                          {product.name}
+                        </h3>
+                        {/* Descripción que aparece al pasar el mouse */}
+                        <motion.p
+                          variants={descriptionVariants}
+                          className='text-sm text-blue-100/90 line-clamp-2 overflow-hidden'
+                        >
+                          {product.description}
+                        </motion.p>
+                      </motion.div>
+                    </div>
+
+                    <div className='mt-4'>
+                      <button
+                        onClick={handleButtonClick}
+                        className={`w-full py-3 ${
+                          isInCart ? 'bg-red-600' : 'bg-pink-600'
+                        } text-white font-semibold rounded-full hover:bg-pink-700 transition-colors duration-300 transform group-hover:scale-105`}
+                      >
+                        {isHome
+                          ? 'Get a quote'
+                          : isInCart
+                          ? 'Remove from cart'
+                          : 'Add to cart'}
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
         </motion.div>
       </div>
       {!isHome && (
-        <div className='container mx-auto px-4 mt-10'>
+        <div className='container mx-auto px-4 mt-20'>
           <motion.div
             initial={{ y: -20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -152,99 +155,96 @@ const PricingSection = ({ isHome = true }) => {
             transition={{ duration: 0.5 }}
             className='text-center mb-16'
           >
-            <p className='font-semibold text-yellow-300 mb-2'>PRICING</p>
             <h2 className='text-4xl md:text-5xl font-bold text-white'>
-              Additionals
+              Our Additionals
             </h2>
           </motion.div>
 
           <motion.div
-            className='grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch'
+            className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
             variants={containerVariants}
             initial='hidden'
             whileInView='visible'
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
-            {pricingDataAdd.map((plan, index) => {
-              const handleClick = () => {
-                if (isHome) {
-                  router.push('/contact');
-                  return;
-                }
-                handleAddOrRemoveProduct(plan.id);
-              };
-              const isInCart = validateProductInCart(plan.id);
+            {productsData
+              .filter((item) => parseFloat(item.price) < 60)
+              .map((product) => {
+                const isInCart = validateProductInCart(product.id);
+                const handleButtonClick = () => {
+                  if (isHome) {
+                    navigate.push('/contact');
+                    return;
+                  }
+                  handleAddOrRemoveProduct(product.id);
+                };
 
-              return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -5 }}
-                  className={`flex flex-col rounded-xl overflow-hidden shadow-lg transition-all duration-300 ${
-                    plan.isFeatured
-                      ? 'bg-white text-gray-800 scale-100 lg:scale-105'
-                      : 'bg-white/10 text-white border border-white/20'
-                  }`}
-                >
-                  {/* --- SECCIÓN DE IMAGEN AÑADIDA --- */}
-                  <div className='relative w-full h-48'>
-                    <Image
-                      src={plan.image}
-                      alt={plan.name}
-                      layout='fill'
-                      objectFit='cover'
-                    />
-                  </div>
-
-                  <div className='p-8 flex-grow flex flex-col'>
-                    <h3 className='text-2xl font-bold mb-3'>{plan.name}</h3>
-                    <span className='text-4xl font-bold'>{plan.price} USD</span>
-                    <span className={`${'text-white'}`}>
-                      {plan.description}
-                    </span>
-
-                    {/* Div para empujar el botón hacia abajo */}
-                    {/* <ul className='space-y-4 flex-grow'>
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className='flex items-start gap-3'>
-                      <LuCheckCircle
-                        className={`flex-shrink-0 mt-1 ${
-                          plan.isFeatured
-                            ? 'text-purple-500'
-                            : 'text-yellow-300'
-                        }`}
+                return (
+                  <motion.div
+                    key={product.id}
+                    variants={itemVariants}
+                    initial='rest'
+                    whileHover='hover'
+                    animate='rest'
+                    className='group relative h-96 rounded-xl overflow-hidden shadow-lg'
+                  >
+                    {/* Imagen de Fondo */}
+                    <div className='absolute inset-0'>
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        layout='fill'
+                        objectFit='cover'
+                        className='transition-transform duration-500 ease-in-out group-hover:scale-105'
                       />
-                      <span
-                        className={`${
-                          plan.isFeatured ? 'text-gray-600' : 'text-gray-200'
-                        }`}
-                      >
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul> */}
-
-                    <div className='mt-8'>
-                      <button
-                        onClick={handleClick}
-                        className={`w-full px-6 py-3 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 ${
-                          !isInCart
-                            ? 'bg-yellow-400 text-gray-900 hover:bg-yellow-500'
-                            : 'bg-purple-500/50 text-white hover:bg-purple-500'
-                        }`}
-                      >
-                        {isHome
-                          ? 'Get a quote'
-                          : isInCart
-                          ? 'Remove from Cart'
-                          : 'Add to Cart'}
-                      </button>
                     </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+                    {/* Overlay oscuro para legibilidad */}
+                    <div className='absolute inset-0 bg-black/60 group-hover:bg-black/70 transition-colors duration-400' />
+
+                    {/* Contenido de la tarjeta */}
+                    <div className='relative h-full flex flex-col p-6 text-white'>
+                      <div className='flex justify-between items-center'>
+                        <span className='font-bold text-xl text-[#ced1ec]'>
+                          ${product.price} USD
+                        </span>
+                      </div>
+
+                      <div className='flex-grow flex flex-col justify-end'>
+                        <motion.div
+                          variants={contentVariants}
+                          className='transition-transform duration-400 ease-out'
+                        >
+                          <h3 className='text-2xl font-bold leading-tight mb-2'>
+                            {product.name}
+                          </h3>
+                          {/* Descripción que aparece al pasar el mouse */}
+                          <motion.p
+                            variants={descriptionVariants}
+                            className='text-sm text-blue-100/90 line-clamp-2 overflow-hidden'
+                          >
+                            {product.description}
+                          </motion.p>
+                        </motion.div>
+                      </div>
+
+                      <div className='mt-4'>
+                        <button
+                          onClick={handleButtonClick}
+                          className={`w-full py-3 ${
+                            isInCart ? 'bg-red-600' : 'bg-pink-600'
+                          } text-white font-semibold rounded-full hover:bg-pink-700 transition-colors duration-300 transform group-hover:scale-105`}
+                        >
+                          {isHome
+                            ? 'Get a quote'
+                            : isInCart
+                            ? 'Remove from cart'
+                            : 'Add to cart'}
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
           </motion.div>
         </div>
       )}
@@ -252,4 +252,4 @@ const PricingSection = ({ isHome = true }) => {
   );
 };
 
-export default PricingSection;
+export default ProductsSection;
