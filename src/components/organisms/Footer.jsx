@@ -23,8 +23,11 @@ const footerLinks = {
     { name: 'Contact', href: '/contact' },
   ],
   support: [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
+    { name: 'Privacy Policy', href: '/pdf/AP.PUBLYDISENO.SEPTIEMBRE.2025.pdf' },
+    {
+      name: 'Terms of Service',
+      href: '/pdf/TYC-PUBLYDISENO.SEPTIEMBRE.2025.pdf',
+    },
   ],
 };
 
